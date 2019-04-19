@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="color_default">
+        <item>#26c6da</item>
+        <item>#0097a7</item>
+        <item>#0d47a1</item>
+        <item>#1565c0</item>
+        <item>#039be5</item>
+        <item>#64b5f6</item>
+        <item>#ff6f00</item>
+        <item>#ffa000</item>
+        <item>#ffb300</item>
+        <item>#ce9600</item>
+        <item>#8d6e63</item>
+        <item>#6d4c41</item>
+        <item>#d32f2f</item>
+        <item>#ff1744</item>
+        <item>#f44336</item>
+        <item>#ec407a</item>
+        <item>#ad1457</item>
+        <item>#6a1b9a</item>
+        <item>#ab47bc</item>
+        <item>#ba68c8</item>
+        <item>#00695c</item>
+        <item>#00897b</item>
+        <item>#4db6ac</item>
+        <item>#2e7d32</item>
+        <item>#43a047</item>
+        <item>#64dd17</item>
+        <item>#212121</item>
+        <item>#5f7c8a</item>
+        <item>#b0bec5</item>
+        <item>#455a64</item>
+        <item>#607d8b</item>
+        <item>#90a4ae</item>
+    </string-array>
+    <string-array name="color_report">
+        <item>#2a96f3</item>
+        <item>#4faa52</item>
+        <item>#ff582b</item>
+        <item>#ffc000</item>
+        <item>#4471c4</item>
+        <item>#245e91</item>
+        <item>#a4a4a4</item>
+    </string-array>
+</resources>

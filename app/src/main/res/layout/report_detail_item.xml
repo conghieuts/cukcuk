@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_margin="@dimen/layout_margin_left_right_small"
+        android:id="@+id/rlNumber"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size">
+
+        <ImageView
+            android:id="@+id/ivIndex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_primary_background"
+            tools:ignore="ContentDescription"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/tvIndex"
+            style="@style/text_white_bold"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvNameFood"
+        style="@style/text_primary_bold"
+        android:layout_alignTop="@+id/rlNumber"
+        android:layout_toEndOf="@+id/rlNumber"
+        android:layout_toStartOf="@+id/tvTotalMoney"
+        android:text="@string/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvNumber"
+        style="@style/text_primary"
+        android:layout_alignBottom="@+id/rlNumber"
+        android:layout_below="@+id/tvNameFood"
+        android:layout_toEndOf="@+id/rlNumber"
+        android:layout_toStartOf="@+id/tvTotalMoney"
+        android:text="@string/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvTotalMoney"
+        style="@style/text_primary_bold"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/layout_margin_left_right"
+        android:layout_centerVertical="true"
+        android:text="@string/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/vSeparate"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignStart="@+id/tvNumber"
+        android:layout_below="@+id/tvNumber"
+        android:layout_marginTop="@dimen/layout_margin_top_bot_small"
+        android:background="@color/colorBackgroundSecondary" />
+
+</RelativeLayout>

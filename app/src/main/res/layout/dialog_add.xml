@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="ToolbarTitle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            style="@style/text_title_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/text_cukcuk" />
+    </android.support.v7.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/edt_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/layout_margin_top_bot"
+        android:layout_marginBottom="@dimen/layout_margin_top_bot"
+        android:padding="@dimen/layout_padding" />
+
+    <RelativeLayout
+        android:paddingBottom="@dimen/layout_padding"
+        android:paddingTop="@dimen/layout_padding"
+        android:layout_below="@+id/edt_add"
+        android:background="@color/colorBackgroundSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:background="@drawable/selector_border_background_white"
+            android:id="@+id/btn_cancel"
+            style="@style/button_text_red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/layout_margin_left_right"
+            android:layout_toStartOf="@id/btn_save"
+            android:text="@string/button_cancel" />
+
+        <Button
+            android:background="@drawable/selector_border_background_blue"
+            android:id="@+id/btn_save"
+            style="@style/button_text_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/layout_margin_left_right"
+            android:text="@string/button_save" />
+    </RelativeLayout>
+</RelativeLayout>

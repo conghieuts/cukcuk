@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.mainscreen.reportscreen.ReportFragment">
+
+    <LinearLayout
+        android:id="@+id/llReport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/layout_padding"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_background_white">
+
+            <TextView
+                android:id="@+id/tvVertical"
+                style="@style/text_primary"
+                android:layout_margin="@dimen/layout_margin"
+                android:text="@string/app_name" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lcChart"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_below="@+id/tvVertical" />
+
+            <TextView
+                android:id="@+id/tvHorizontal"
+                style="@style/text_primary"
+                android:layout_below="@+id/lcChart"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/layout_margin_top_bot_small"
+                android:layout_marginEnd="@dimen/layout_margin"
+                android:layout_marginBottom="@dimen/layout_margin_top_bot_small"
+                android:text="@string/app_name" />
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:background="@drawable/border_background_white" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

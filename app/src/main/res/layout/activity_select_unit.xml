@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.selectunitscreen.SelectUnitActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="ToolbarTitle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_horizontal"
+        app:titleTextColor="@android:color/white">
+
+        <TextView
+            style="@style/text_title_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/text_unit" />
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_unit_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_done"
+        android:layout_below="@id/toolbar"></android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btn_done"
+        style="@style/button_background_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/layout_margin_left_right"
+        android:layout_marginEnd="@dimen/layout_margin_left_right"
+        android:layout_marginBottom="@dimen/layout_margin_top_bot"
+        android:text="@string/text_done" />
+</RelativeLayout>

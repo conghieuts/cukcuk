@@ -1,0 +1,161 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:actionMenuTextColor">@android:color/white</item>
+        <item name="android:actionMenuTextAppearance">@style/menu_text</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="text_primary_bold">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="text_primary_bold_big">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="text_primary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="text_normal">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_normal_big_grey" tools:override="true">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="ToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="menu_text">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="text_star">
+        <item name="android:textColor">@android:color/holo_red_light</item>
+    </style>
+
+    <style name="button_blue">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorBlueDark</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="button_background_blue">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/border_background_blue</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="text_key_calculator">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">#A9BEBEBE</item>
+    </style>
+
+    <style name="text_title_toolbar">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="button_text_white">
+        <item name="android:paddingStart">@dimen/layout_padding</item>
+        <item name="android:paddingEnd">@dimen/layout_padding</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/border_background_blue</item>
+    </style>
+
+    <style name="button_text_red">
+        <item name="android:paddingStart">@dimen/layout_padding</item>
+        <item name="android:paddingEnd">@dimen/layout_padding</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/holo_red_light</item>
+        <item name="android:background">@drawable/border_background_white</item>
+    </style>
+
+    <style name="text_button_white">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="text_button_blue">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
+
+    <style name="text_big_white">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_primary_big">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="text_primary_blue">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
+
+    <style name="text_primary_bold_all_cap">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_white_bold">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NavigationDrawerTheme">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="text_primary_blue_dark">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorBlueDark</item>
+    </style>
+
+
+</resources>

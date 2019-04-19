@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="ToolbarTitle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            style="@style/text_title_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/text_add_cost" />
+    </android.support.v7.widget.Toolbar>
+    <EditText
+        android:inputType="number"
+        android:padding="@dimen/layout_padding"
+        android:layout_below="@id/toolbar"
+        android:id="@+id/edt_add"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_top_bot"
+        android:layout_marginBottom="@dimen/layout_margin_top_bot"/>
+    <Button
+        style="@style/button_text_white"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:layout_toStartOf="@id/btn_save"
+        android:layout_marginEnd="@dimen/layout_margin_left_right"
+        android:id="@+id/btn_cancel"
+        android:background="@android:color/white"
+        android:layout_below="@+id/edt_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel"/>
+    <Button
+        style="@style/button_text_white"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginEnd="@dimen/layout_margin_left_right"
+        android:layout_marginBottom="@dimen/layout_margin_top_bot"
+        android:id="@+id/btn_save"
+        android:background="@android:color/white"
+        android:layout_below="@+id/edt_add"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_save"/>
+</RelativeLayout>

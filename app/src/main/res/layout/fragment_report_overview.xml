@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llOverView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_background_white"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/layout_padding">
+
+    <RelativeLayout
+        android:id="@+id/rl_yesterday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:layout_marginBottom="@dimen/layout_padding_small">
+
+        <ImageView
+            android:id="@+id/iv_yesterday"
+            android:layout_width="@dimen/width_medium"
+            android:layout_height="@dimen/height_medium"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_left_right_small"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/colorOrange"
+            android:padding="@dimen/layout_padding"
+            android:src="@drawable/ic_calendar_yesterday"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_title_yesterday"
+
+            style="@style/text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_yesterday"
+            android:text="@string/text_yesterday" />
+
+        <TextView
+
+            android:id="@+id/tv_yesterday"
+            style="@style/text_primary_blue_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_normal"
+            android:gravity="center"
+            android:text="@string/app_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separate_height_normal"
+            android:layout_alignStart="@+id/tv_title_yesterday"
+            android:layout_alignBottom="@+id/iv_yesterday"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:background="@color/colorUnderline" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_today"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:layout_marginBottom="@dimen/layout_padding_small">
+
+        <ImageView
+            android:id="@+id/iv_today"
+
+            android:layout_width="@dimen/width_medium"
+            android:layout_height="@dimen/height_medium"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_left_right_small"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/colorBlue"
+            android:padding="@dimen/layout_padding"
+            android:src="@drawable/ic_calendar_today"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvTitleToday"
+            style="@style/text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_today"
+            android:text="@string/text_today" />
+
+        <TextView
+            android:id="@+id/tv_today"
+            style="@style/text_primary_blue_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_normal"
+            android:gravity="center"
+            android:text="@string/app_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separate_height_normal"
+            android:layout_alignStart="@+id/tvTitleToday"
+            android:layout_alignBottom="@+id/iv_today"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:background="@color/colorUnderline" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_this_week"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:layout_marginBottom="@dimen/layout_padding_small">
+
+        <ImageView
+            android:id="@+id/iv_week"
+            android:layout_width="@dimen/width_medium"
+            android:layout_height="@dimen/height_medium"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_left_right_small"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/colorGreenLight"
+            android:padding="@dimen/layout_padding"
+            android:src="@drawable/ic_calendar_week"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvTitleWeek"
+            style="@style/text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_week"
+            android:text="@string/text_this_week" />
+
+        <TextView
+            android:id="@+id/tv_this_week"
+            style="@style/text_primary_blue_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_normal"
+            android:gravity="center"
+            android:text="@string/app_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separate_height_normal"
+            android:layout_alignStart="@+id/tvTitleWeek"
+            android:layout_alignBottom="@+id/iv_week"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:background="@color/colorUnderline" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_this_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:layout_marginBottom="@dimen/layout_padding_small">
+
+        <ImageView
+            android:id="@+id/iv_month"
+
+            android:layout_width="@dimen/width_medium"
+            android:layout_height="@dimen/height_medium"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_left_right_small"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/colorOrangeRed"
+            android:padding="@dimen/layout_padding"
+            android:src="@drawable/ic_calendar_year"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvTitleMonth"
+            style="@style/text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_month"
+            android:text="@string/text_this_month" />
+
+        <TextView
+            android:id="@+id/tv_this_month"
+            style="@style/text_primary_blue_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_normal"
+            android:gravity="center"
+            android:text="@string/app_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separate_height_normal"
+            android:layout_alignStart="@+id/tvTitleMonth"
+            android:layout_alignBottom="@+id/iv_month"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:background="@color/colorUnderline" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_this_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:layout_marginBottom="@dimen/layout_padding_small">
+
+        <ImageView
+            android:id="@+id/iv_year"
+
+            android:layout_width="@dimen/width_medium"
+            android:layout_height="@dimen/height_medium"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_left_right_small"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/colorBlueAccent"
+            android:padding="@dimen/layout_padding"
+            android:src="@drawable/ic_calendar_month"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_title_year"
+
+            style="@style/text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_year"
+            android:text="@string/this_year" />
+
+        <TextView
+            android:id="@+id/tv_this_year"
+            style="@style/text_primary_blue_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_normal"
+            android:gravity="center"
+            android:text="@string/app_name" />
+
+    </RelativeLayout>
+
+</LinearLayout>

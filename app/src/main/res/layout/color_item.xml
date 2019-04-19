@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginEnd="@dimen/icon_margin_end_big"
+        android:layout_marginStart="@dimen/icon_margin_start"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:id="@+id/iv_item"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/circle_background"/>

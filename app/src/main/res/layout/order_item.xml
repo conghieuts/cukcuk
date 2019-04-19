@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/layout_margin_top_bot_small"
+    android:background="@drawable/selector_border_background_white"
+    android:orientation="horizontal"
+    android:layout_marginStart="@dimen/layout_margin_left_right_small"
+    android:layout_marginEnd="@dimen/layout_margin_left_right_small">
+
+    <RelativeLayout
+        android:background="@drawable/border_background_white"
+        android:id="@+id/rl_info"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="@dimen/layout_padding_big"
+        android:paddingEnd="@dimen/layout_padding_big">
+
+        <TextView
+            android:layout_marginTop="@dimen/layout_margin_top_bot"
+            android:id="@+id/tv_table_number"
+            style="@style/text_big_white"
+            android:layout_width="@dimen/icon_big_size"
+            android:layout_height="@dimen/icon_big_size"
+            android:background="@drawable/circle_background"
+            android:gravity="center" />
+
+        <TextView
+            style="@style/text_primary_bold_big"
+            android:visibility="gone"
+            android:id="@+id/tv_people_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_table_number"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/layout_margin_top_bot_small"
+            android:drawableEnd="@drawable/ic_person"
+            android:drawablePadding="@dimen/draw_padding"
+            android:gravity="center" />
+    </RelativeLayout>
+<View
+    android:background="@color/colorUnderline"
+    android:layout_width="1dp"
+    android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/layout_padding_big"
+            android:paddingBottom="@dimen/layout_padding_big">
+
+            <TextView
+                style="@style/text_primary"
+                android:paddingTop="@dimen/layout_padding_small"
+                android:paddingBottom="@dimen/layout_padding_small"
+                android:maxLines="2"
+                android:id="@+id/tv_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_margin_left_right"
+                android:layout_toStartOf="@id/iv_keyboard_arrow_right" />
+
+            <TextView
+                android:paddingTop="@dimen/layout_padding_small"
+                android:paddingBottom="@dimen/layout_padding_small"
+                style="@style/text_normal"
+                android:id="@+id/tv_total_paid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_list_item"
+                android:layout_alignStart="@id/tv_list_item"
+                android:layout_alignEnd="@id/tv_list_item" />
+
+            <ImageView
+                android:id="@+id/iv_keyboard_arrow_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_keyboard_arrow_right_normal" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:background="@drawable/button_selector_background"
+                android:id="@+id/rl_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:paddingTop="@dimen/layout_padding_small"
+                    android:paddingBottom="@dimen/layout_padding_small"
+                    style="@style/text_primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_clear_big"
+                    android:gravity="center"
+                    android:text="@string/button_cancel" />
+            </RelativeLayout>
+            <View
+                android:background="@color/colorUnderline"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+            <RelativeLayout
+                android:background="@drawable/button_selector_background"
+                android:id="@+id/rl_collect_money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:paddingTop="@dimen/layout_padding_small"
+                    android:paddingBottom="@dimen/layout_padding_small"
+                    style="@style/text_primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_attach_money_big"
+                    android:gravity="center"
+                    android:text="@string/button_collect_money" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

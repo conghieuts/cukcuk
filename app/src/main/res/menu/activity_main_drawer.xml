@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/sale"
+            android:icon="@drawable/ic_sale"
+            android:title="Bán hàng" />
+        <item
+            android:id="@+id/menu"
+            android:icon="@drawable/ic_menu"
+            android:title="Thực đơn" />
+        <item
+            android:id="@+id/report"
+            android:icon="@drawable/ic_report"
+            android:title="Báo cáo" />
+
+
+        <item android:title="Thiết lập">
+            <menu>
+                <item
+                    android:id="@+id/sync"
+                    android:icon="@drawable/ic_sync"
+                    android:title="Đồng bộ dữ liệu" />
+                <item
+                    android:id="@+id/setup"
+                    android:icon="@drawable/ic_setting"
+                    android:title="Thiết lập" />
+            </menu>
+        </item>
+        <item android:title="Trợ giúp">
+            <menu>
+                <item
+                    android:id="@+id/notification"
+                    android:icon="@drawable/ic_notifications"
+                    android:title="Thông báo" />
+                <item
+                    android:id="@+id/share"
+                    android:icon="@drawable/ic_share"
+                    android:title="Giới thiệu cho bạn" />
+                <item
+                    android:id="@+id/rate"
+                    android:icon="@drawable/ic_rate"
+                    android:title="Đánh giá ứng dụng" />
+                <item
+                    android:id="@+id/about"
+                    android:icon="@drawable/ic_info"
+                    android:title="Thông tin sản phẩm" />
+            </menu>
+        </item>
+    </group>
+
+</menu>
