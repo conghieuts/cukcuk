@@ -450,7 +450,7 @@ public class SelectFoodItemActivity extends AppCompatActivity implements ISelect
     @Override
     public void onDataError() {
         try {
-            Toast.makeText(this, "Hãy thêm ít nhất 1 món ăn", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_add_food), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }

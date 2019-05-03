@@ -71,20 +71,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
-
-
+        boolean dbExist = checkDatabase();
+        if (!dbExist) {
+            copyDatabase();
+        }
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("nvtien", "onCreate: ");
-        boolean dbExist = checkDatabase();
-        if (!dbExist) {
-            System.out.println("Database doesn't exist!");
-            copyDatabase();
-        } else {
-            System.out.println("Database exist!");
-        }
         /*String script = "CREATE TABLE " + TABLE_FOOD_ITEM + "("
                 + COLUMN_FOOD_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_FOOD_ITEM_NAME + " TEXT,"
                 + COLUMN_FOOD_ITEM_COST + " INTEGER," + COLUMN_FOOD_ITEM_SELLING + " TEXT,"
@@ -151,9 +145,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             myOutput.flush();
             myOutput.close();
             myInput.close();
-            System.out.println("copyDatabase success");
         } catch (IOException e) {
-            System.out.println("copyDatabase error");
             e.printStackTrace();
         }
     }

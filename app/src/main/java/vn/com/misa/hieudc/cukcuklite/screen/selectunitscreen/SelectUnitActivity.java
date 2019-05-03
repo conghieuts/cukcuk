@@ -228,7 +228,7 @@ public class SelectUnitActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onCreateFail() {
         try {
-            Toast.makeText(this, "Đơn vị đã tồn tại", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_unit_exist), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -242,7 +242,7 @@ public class SelectUnitActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onDataError() {
         try {
-            Toast.makeText(this, "Tên không được trống", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_error_name), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }

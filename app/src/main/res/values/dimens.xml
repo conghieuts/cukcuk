@@ -47,4 +47,5 @@
     <dimen name="separate_height_normal">1dp</dimen>
     <dimen name="width_medium">48dp</dimen>
     <dimen name="height_medium">48dp</dimen>
+    <dimen name="height_chart_small">300dp</dimen>
 </resources>

@@ -365,7 +365,7 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
             Intent intent = new Intent();
             intent.setAction(MainActivity.ACTION_REFRESH);
             LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-            Toast.makeText(this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_add_success), Toast.LENGTH_SHORT).show();
             finish();
         } catch (Exception e) {
             e.printStackTrace();
@@ -379,7 +379,7 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
      */
     @Override
     public void onAddFail() {
-        Toast.makeText(this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.toast_add_fail), Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -398,7 +398,7 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
             bundle.putSerializable("foodItem", foodItem);
             intent.putExtras(bundle);
             LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-            Toast.makeText(this, "Sửa thành công", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_edit_success), Toast.LENGTH_SHORT).show();
             finish();
         } catch (Exception e) {
             e.printStackTrace();
@@ -413,7 +413,7 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onUpdateFail() {
         try {
-            Toast.makeText(this, "Sửa thất bại", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_edit_fail), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -427,7 +427,7 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onDataError() {
         try {
-            Toast.makeText(this, "Tên không được để trống", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_error_name), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -441,7 +441,7 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onDeleteSuccess() {
         try {
-            Toast.makeText(this, "Đã xóa", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_delete_success), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent();
             intent.setAction(MainActivity.ACTION_REFRESH);
             LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
@@ -453,7 +453,7 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onDeleteFail() {
-        Toast.makeText(this, "Không thể xóa vì món ăn này đang được bán", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.toast_delete_fail_by_transaction), Toast.LENGTH_SHORT).show();
     }
 
     @Override

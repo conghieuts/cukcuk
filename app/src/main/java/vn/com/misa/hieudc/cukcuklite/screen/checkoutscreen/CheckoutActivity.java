@@ -1,6 +1,8 @@
 package vn.com.misa.hieudc.cukcuklite.screen.checkoutscreen;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,12 +37,17 @@ import vn.com.misa.hieudc.cukcuklite.screen.selectfooditemscreen.SelectFoodItemA
 public class CheckoutActivity extends AppCompatActivity implements View.OnClickListener, ICheckoutView, AddDialog.IOnAddDialogSave, ConfirmDialog.IOnConfirm {
     public static final String INTENT_NAME = "ORDER";
     public static final String INTENT_TYPE = "IS_NEW";
+    private static final String MyPREFERENCES = "PREFERENCE";
+    private static final String NUMBER_KEY = "NUMBER";
+    private static final int NUMBER_DEFAULT = 1;
+
     private Bill mBill;
     private RecyclerView mRecyclerView;
     private ICheckoutPresenter mICheckoutPresenter;
     private Boolean mIsNew;
-    private TextView tvTotalPaid, tvReceive, tvRefund, tvTable, tvDate;
-
+    private TextView tvTotalPaid, tvReceive, tvRefund, tvTable, tvDate, tvNumber;
+    private int checkoutNumber;
+    SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +81,9 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
 
     private void initView() {
         try {
+            sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+            checkoutNumber = sharedpreferences.getInt(NUMBER_KEY, NUMBER_DEFAULT);
+            tvNumber = findViewById(R.id.tv_title_number);
             tvTotalPaid = findViewById(R.id.tv_total_paid);
             tvReceive = findViewById(R.id.tv_receive);
             tvRefund = findViewById(R.id.tv_refund);
@@ -91,6 +101,8 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
                 tvTotalPaid.setText(NumberFormat.getInstance().format(mBill.getCharge()));
                 tvReceive.setText(NumberFormat.getInstance().format(mBill.getReceive()));
                 tvRefund.setText(NumberFormat.getInstance().format(mBill.getReceive() - mBill.getCharge()));
+                String text_number = getString(R.string.text_number) + " " + String.valueOf(checkoutNumber);
+                tvNumber.setText(text_number);
                 initListCheckoutItem();
             }
         } catch (Exception e) {
@@ -189,7 +201,10 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void checkoutDone() {
         try {
-            Toast.makeText(this, "Đã thu tiền thành công. Vui lòng chọn món mới.", Toast.LENGTH_SHORT).show();
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putInt(NUMBER_KEY, checkoutNumber + 1);
+            editor.apply();
+            Toast.makeText(this, getString(R.string.toast_collect_success), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent();
             intent.setAction(MainActivity.ACTION_REFRESH);
             LocalBroadcastManager.getInstance(AppContext.getInstance()).sendBroadcast(intent);

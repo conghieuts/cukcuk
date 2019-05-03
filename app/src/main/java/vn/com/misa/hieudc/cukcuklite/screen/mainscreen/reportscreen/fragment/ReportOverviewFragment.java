@@ -128,6 +128,8 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
                 break;
             case R.id.rl_this_week: {
                 try {
+                    if (!TextUtils.isEmpty(tvThisWeek.getText()) && tvThisWeek.getText().equals("0"))
+                        break;
                     if(mIOnClickTimeReport != null) {
                         mIOnClickTimeReport.startOverviewDetail(WEEK_DETAIL);
                     }
@@ -138,6 +140,8 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
             break;
             case R.id.rl_this_month: {
                 try {
+                    if (!TextUtils.isEmpty(tvThisMonth.getText()) && tvThisMonth.getText().equals("0"))
+                        break;
                     if(mIOnClickTimeReport != null) {
                         mIOnClickTimeReport.startOverviewDetail(MONTH_DETAIL);
                     }
@@ -148,6 +152,8 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
             break;
             case R.id.rl_this_year: {
                 try {
+                    if (!TextUtils.isEmpty(tvThisYear.getText()) && tvThisYear.getText().equals("0"))
+                        break;
                     if(mIOnClickTimeReport != null) {
                         mIOnClickTimeReport.startOverviewDetail(YEAR_DETAIL);
                     }

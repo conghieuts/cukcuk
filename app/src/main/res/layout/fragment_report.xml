@@ -26,7 +26,7 @@
             android:background="?attr/selectableItemBackground"
             android:drawableEnd="@drawable/ic_arrow_drop_down_black"
             android:gravity="center"
-            android:text="@string/text_all_time"
+            android:text="@string/time_default"
             android:textColor="@color/colorBlack" />
 
     </RelativeLayout>

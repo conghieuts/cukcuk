@@ -88,4 +88,22 @@
     <string name="text_report_detail">Doanh thu theo mặt hàng</string>
     <string name="time">Thời gian</string>
     <string name="text_all_time">Toàn bộ</string>
+    <string name="time_default">Gần đây</string>
+    <string name="other">Khác</string>
+    <string name="title_year_vertical_report">(Triệu đồng)</string>
+    <string name="title_year_horizontal_report">(Tháng)</string>
+    <string name="title_week_vertical_report">(Nghìn đồng)</string>
+    <string name="title_week_horizontal_report">(Thứ)</string>
+    <string name="title_month_vertical_report">(Nghìn đồng)</string>
+    <string name="title_month_horizontal_report">(Ngày)</string>
+    <string name="toast_unit_exist">Đơn vị đã tồn tại</string>
+    <string name="toast_collect_success">Đã thu tiền thành công. Vui lòng chọn món mới.</string>
+    <string name="toast_error_name">Tên không được trống</string>
+    <string name="toast_add_success">Thêm thành công</string>
+    <string name="toast_add_fail">Thêm thất bại</string>
+    <string name="toast_edit_success">Sửa thành công</string>
+    <string name="toast_edit_fail">Sửa thất bại</string>
+    <string name="toast_delete_success">Đã xóa</string>
+    <string name="toast_delete_fail_by_transaction">Không thể xóa vì món ăn này đã được giao dịch</string>
+    <string name="toast_add_food">Hãy thêm ít nhất 1 món ăn</string>
 </resources>

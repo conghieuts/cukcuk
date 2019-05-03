@@ -66,6 +66,16 @@
                     android:layout_marginTop="@dimen/layout_margin_top_bot_small"
                     android:text="@string/text_number" />
 
+                <!--<TextView
+                    android:layout_toEndOf="@+id/tv_title_number"
+                    android:id="@+id/tv_number"
+                    style="@style/text_primary_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvTitleBill"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/layout_margin_top_bot_small"
+                    android:text="@string/text_number" />-->
 
                 <TextView
                     android:visibility="gone"

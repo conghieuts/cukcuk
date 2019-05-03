@@ -15,9 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
-import com.facebook.stetho.Stetho;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -44,7 +41,6 @@ public class ListOrderFragment extends Fragment implements IListOrderView, ListO
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Stetho.newInitializerBuilder(getContext());
         try {
             mIListOrderPresenter = new ListOrderPresenter(this);
             initListOrder();
