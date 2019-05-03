@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import vn.com.misa.hieudc.cukcuklite.R;
+import vn.com.misa.hieudc.cukcuklite.screen.mainscreen.reportscreen.fragment.ReportOverviewDetailFragment;
 import vn.com.misa.hieudc.cukcuklite.screen.mainscreen.reportscreen.fragment.ReportOverviewFragment;
 
 /**
@@ -20,7 +21,7 @@ import vn.com.misa.hieudc.cukcuklite.screen.mainscreen.reportscreen.fragment.Rep
  * Created_date: 4/18/2019
  * Fragment báo cáo doanh thu
  */
-public class ReportFragment extends Fragment {
+public class ReportFragment extends Fragment implements ReportOverviewFragment.IOnClickTimeReport {
     IReportPresenter mIReportPresenter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,19 @@ public class ReportFragment extends Fragment {
         try {
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fl_container_report, ReportOverviewFragment.newInstance(mIReportPresenter), null);
+            fragmentTransaction.replace(R.id.fl_container_report, ReportOverviewFragment.newInstance(this, mIReportPresenter), null);
+            fragmentTransaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void startOverviewDetail(int targetFragment) {
+        try {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fl_container_report, ReportOverviewDetailFragment.newInstance(mIReportPresenter, targetFragment), null);
             fragmentTransaction.commit();
         } catch (Exception e) {
             e.printStackTrace();

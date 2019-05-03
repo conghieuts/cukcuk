@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import vn.com.misa.hieudc.cukcuklite.R;
+import vn.com.misa.hieudc.cukcuklite.config.AppContext;
 
 /**
  * Created_by: dchieu
@@ -15,22 +16,21 @@ import vn.com.misa.hieudc.cukcuklite.R;
  * Dialog với 2 nút xác nhận
  */
 public class ConfirmDialog extends AlertDialog implements View.OnClickListener {
-    Context mContext;
-    IOnConfirm mIOnConfirm;
-    String mTitle, mMessage;
-    AlertDialog mAlertDialog;
-    TextView tvTitle, tvmessage, btnCancel, btnAccept;
+    private Context mContext;
+    private IOnConfirm mIOnConfirm;
+    private String mTitle, mMessage;
+    private AlertDialog mAlertDialog;
 
 
     public interface IOnConfirm {
         void onConfirm();
     }
 
-    public ConfirmDialog(@NonNull Context context, String title, String message) {
+    public ConfirmDialog(@NonNull Context context, ConfirmDialog.IOnConfirm listener, String title, String message) {
         super(context);
         try {
             mContext = context;
-            mIOnConfirm = (ConfirmDialog.IOnConfirm) context;
+            mIOnConfirm = listener;
             mTitle = title;
             mMessage = message;
         } catch (Exception e) {
@@ -61,12 +61,12 @@ public class ConfirmDialog extends AlertDialog implements View.OnClickListener {
      */
     private void initView(View view) {
         try {
-            tvTitle = view.findViewById(R.id.tv_toolbar_title);
-            tvmessage = view.findViewById(R.id.tv_description);
-            btnCancel = view.findViewById(R.id.btn_cancel);
-            btnAccept = view.findViewById(R.id.btn_confirm);
+            TextView tvTitle = view.findViewById(R.id.tv_toolbar_title);
+            TextView tvMessage = view.findViewById(R.id.tv_description);
+            TextView btnCancel = view.findViewById(R.id.btn_cancel);
+            TextView btnAccept = view.findViewById(R.id.btn_confirm);
             tvTitle.setText(mTitle);
-            tvmessage.setText(mMessage);
+            tvMessage.setText(mMessage);
             btnAccept.setOnClickListener(this);
             btnCancel.setOnClickListener(this);
         } catch (Exception e) {

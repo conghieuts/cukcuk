@@ -16,10 +16,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.facebook.stetho.Stetho;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 import vn.com.misa.hieudc.cukcuklite.R;
 import vn.com.misa.hieudc.cukcuklite.config.AppContext;
+import vn.com.misa.hieudc.cukcuklite.dialog.ConfirmDialog;
 import vn.com.misa.hieudc.cukcuklite.model.Order;
 import vn.com.misa.hieudc.cukcuklite.screen.checkoutscreen.CheckoutActivity;
 import vn.com.misa.hieudc.cukcuklite.screen.mainscreen.MainActivity;
@@ -31,14 +35,16 @@ import vn.com.misa.hieudc.cukcuklite.screen.selectfooditemscreen.SelectFoodItemA
  * Created_date: 4/1/2019
  * Fragment danh sách đơn hàng
  */
-public class ListOrderFragment extends Fragment implements IListOrderView, ListOrderAdapter.OnItemClick {
+public class ListOrderFragment extends Fragment implements IListOrderView, ListOrderAdapter.OnItemClick, ConfirmDialog.IOnConfirm {
     IListOrderPresenter mIListOrderPresenter;
     ArrayList<Order> mOrderArrayList;
     RecyclerView mRecyclerView;
+    private int mPosition;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Stetho.newInitializerBuilder(getContext());
         try {
             mIListOrderPresenter = new ListOrderPresenter(this);
             initListOrder();
@@ -133,7 +139,9 @@ public class ListOrderFragment extends Fragment implements IListOrderView, ListO
     @Override
     public void onCancel(int position) {
         try {
-            mIListOrderPresenter.cancelOrder(mOrderArrayList.get(position));
+            mPosition = position;
+            ConfirmDialog confirmDialog = new ConfirmDialog(Objects.requireNonNull(getContext()), this, "Hủy đơn hàng", "Bạn có chắc muốn hủy đơn hàng không?");
+            confirmDialog.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -185,5 +193,10 @@ public class ListOrderFragment extends Fragment implements IListOrderView, ListO
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onConfirm() {
+        mIListOrderPresenter.cancelOrder(mOrderArrayList.get(mPosition));
     }
 }

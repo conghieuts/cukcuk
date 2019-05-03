@@ -193,7 +193,7 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
             Intent intent = new Intent();
             intent.setAction(MainActivity.ACTION_REFRESH);
             LocalBroadcastManager.getInstance(AppContext.getInstance()).sendBroadcast(intent);
-            startActivity(new Intent(this, SelectFoodItemActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("isStart", false));
+            startActivity(new Intent(this, SelectFoodItemActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("isStart", true));
             finish();
         } catch (Exception e) {
             e.printStackTrace();
@@ -219,7 +219,7 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void showConfirmDialog() {
         try {
-            ConfirmDialog confirmDialog = new ConfirmDialog(this, "Thanh toán", "Tiền khách đưa nhỏ hơn Số tiền phải trả. Bạn có chắc chắn muốn thu tiền không?");
+            ConfirmDialog confirmDialog = new ConfirmDialog(this, this, "Thanh toán", "Tiền khách đưa nhỏ hơn Số tiền phải trả. Bạn có chắc chắn muốn thu tiền không?");
             confirmDialog.show();
         } catch (Exception e) {
             e.printStackTrace();

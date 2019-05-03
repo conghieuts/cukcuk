@@ -211,7 +211,7 @@ public class UnitItemDatabaseManager {
         cursor.close();
 
         if (count == 0) {
-            String[] list = {"Bao", "Bát", "Cái", "Chén", "Cốc", "Đĩa", "Điếu", "Lạng", "Lon", "Phần", "Phong", "Quả", "Suất", "Tô", "vỉ"};
+            String[] list = {"Bao", "Bát", "Cái", "Chén", "Cốc", "Đĩa", "Điếu", "Lạng", "Lon", "Phần", "Phong", "Quả", "Suất", "Tô", "Vỉ"};
             UnitItem unitItem = new UnitItem();
             for (String name : list) {
                 unitItem.setName(name);

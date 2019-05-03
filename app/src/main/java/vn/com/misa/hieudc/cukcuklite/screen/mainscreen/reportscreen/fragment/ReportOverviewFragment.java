@@ -26,7 +26,11 @@ import vn.com.misa.hieudc.cukcuklite.screen.reportdetailscreen.ReportDetailActiv
  * Fragment hiển thị tổng quan báo cáo theo ngày, tuần, tháng, năm
  */
 public class ReportOverviewFragment extends Fragment implements View.OnClickListener, IReportView {
-
+    public static final int WEEK_DETAIL = 2;
+    public static final int MONTH_DETAIL = 3;
+    public static final int YEAR_DETAIL = 4;
+    
+    private IOnClickTimeReport mIOnClickTimeReport;
     private IReportPresenter mIReportPresenter;
     TextView tvYesterday, tvToday, tvThisWeek, tvThisMonth, tvThisYear;
 
@@ -37,6 +41,10 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
         mIReportPresenter = IReportPresenter;
     }
 
+    public void setIOnClickTimeReport(IOnClickTimeReport IOnClickTimeReport) {
+        mIOnClickTimeReport = IOnClickTimeReport;
+    }
+
     /**
      * Created_by: dchieu
      * Created_date: 4/17/2019
@@ -44,9 +52,10 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
      * @param iReportPresenter Lớp logic
      * @return ínstance fragment
      */
-    public static ReportOverviewFragment newInstance(IReportPresenter iReportPresenter) {
+    public static ReportOverviewFragment newInstance(IOnClickTimeReport iOnClickTimeReport, IReportPresenter iReportPresenter) {
         ReportOverviewFragment fragment = new ReportOverviewFragment();
         try {
+            fragment.setIOnClickTimeReport(iOnClickTimeReport);
             fragment.setIReportPresenter(iReportPresenter);
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,9 +69,8 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
 
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_report_overview, container, false);
     }
@@ -104,33 +112,25 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
                 try {
                     if (!TextUtils.isEmpty(tvYesterday.getText()) && tvYesterday.getText().equals("0"))
                         break;
-                    Intent intent = new Intent(getContext(), ReportDetailActivity.class);
-                    intent.putStringArrayListExtra("time", ((ReportPresenter) mIReportPresenter).getTimeString(0));
-                    startActivity(intent);
+                    mIReportPresenter.getListTime(this, 0);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
             case R.id.rl_today:
                 try {
-
                     if (!TextUtils.isEmpty(tvToday.getText()) && tvToday.getText().equals("0"))
                         break;
-                    Intent intent = new Intent(getContext(), ReportDetailActivity.class);
-                    intent.putStringArrayListExtra("time", ((ReportPresenter) mIReportPresenter).getTimeString(1));
-                    startActivity(intent);
-
+                    mIReportPresenter.getListTime(this, 1);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
             case R.id.rl_this_week: {
                 try {
-                    if (TextUtils.isEmpty(tvThisWeek.getText()) && tvThisWeek.getText().equals("0"))
-                        break;
-                    Intent intent = new Intent(getContext(), ReportDetailActivity.class);
-                    intent.putStringArrayListExtra("time", ((ReportPresenter) mIReportPresenter).getTimeString(2));
-                    startActivity(intent);
+                    if(mIOnClickTimeReport != null) {
+                        mIOnClickTimeReport.startOverviewDetail(WEEK_DETAIL);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -138,11 +138,9 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
             break;
             case R.id.rl_this_month: {
                 try {
-                    if (TextUtils.isEmpty(tvThisMonth.getText()) && tvThisMonth.getText().equals("0"))
-                        break;
-                    Intent intent = new Intent(getContext(), ReportDetailActivity.class);
-                    intent.putStringArrayListExtra("time", ((ReportPresenter) mIReportPresenter).getTimeString(3));
-                    startActivity(intent);
+                    if(mIOnClickTimeReport != null) {
+                        mIOnClickTimeReport.startOverviewDetail(MONTH_DETAIL);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -150,11 +148,9 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
             break;
             case R.id.rl_this_year: {
                 try {
-                    if (TextUtils.isEmpty(tvThisYear.getText()) && tvThisYear.getText().equals("0"))
-                        break;
-                    Intent intent = new Intent(getContext(), ReportDetailActivity.class);
-                    intent.putStringArrayListExtra("time", ((ReportPresenter) mIReportPresenter).getTimeString(4));
-                    startActivity(intent);
+                    if(mIOnClickTimeReport != null) {
+                        mIOnClickTimeReport.startOverviewDetail(YEAR_DETAIL);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -172,7 +168,7 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
      * @param result dữ liệu
      */
     @Override
-    public void getReportDone(ArrayList<ArrayList<Long>> result) {
+    public void getReportAllTimeDone(ArrayList<ArrayList<Long>> result) {
         try {
             ArrayList<Long> res = new ArrayList<>();
             for (ArrayList<Long> listReport : result) {
@@ -190,5 +186,32 @@ public class ReportOverviewFragment extends Fragment implements View.OnClickList
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void getReportByTimeDone(ArrayList<Long> result) {
+
+    }
+
+    @Override
+    public void getListTimeDone(ArrayList<Long> listTime) {
+        if(listTime.size() < 2) return;
+        try {
+            Intent intent = new Intent(getContext(), ReportDetailActivity.class);
+            intent.putExtra("startTime", listTime.get(0));
+            intent.putExtra("endTime", listTime.get(1));
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/19/2019
+     * Interface nhận sự kiện click vào 1 khoảng thời gian danh sách
+     */
+    public interface IOnClickTimeReport {
+        void startOverviewDetail(int weekDetail);
     }
 }

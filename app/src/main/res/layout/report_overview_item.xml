@@ -30,7 +30,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/separate_height_normal"
-        android:layout_below="@+id/tvContent"
+        android:layout_below="@+id/tv_content"
         android:layout_marginTop="@dimen/layout_margin_top_bot_small"
         android:background="@color/colorUnderline" />
 

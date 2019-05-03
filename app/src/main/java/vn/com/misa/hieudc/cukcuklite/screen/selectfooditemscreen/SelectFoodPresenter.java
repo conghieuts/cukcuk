@@ -79,6 +79,13 @@ public class SelectFoodPresenter implements ISelectFoodPresenter {
         }
     }
 
+    @Override
+    public void startCheckout() {
+        if (mOrder.getListFoodItem().size() != 0) {
+            mISelectFoodView.onCheckout();
+        } else mISelectFoodView.onDataError();
+    }
+
     /**
      * Created_by: dchieu
      * Created_date: 4/18/2019

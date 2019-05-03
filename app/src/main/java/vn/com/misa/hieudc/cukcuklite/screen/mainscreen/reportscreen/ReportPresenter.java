@@ -13,23 +13,12 @@ import vn.com.misa.hieudc.cukcuklite.utils.GetTime;
 public class ReportPresenter implements IReportPresenter {
     private BillDatabaseManager mBillDatabaseManager;
     private ArrayList<ArrayList<Long>> mListReport;
-    private ArrayList<ArrayList<Long>> mTime;
+    private ArrayList<ArrayList<Long>> mListTime;
     ReportPresenter() {
         mBillDatabaseManager = new BillDatabaseManager();
         mListReport = new ArrayList<>();
-        mTime = new ArrayList<>();
+        mListTime = new ArrayList<>();
         initData();
-    }
-
-    /**
-     * Created_by: dchieu
-     * Created_date: 4/18/2019
-     *
-     * @param index vị trí trong list
-     * @return danh sách thòi gian dạng String
-     */
-    public ArrayList<String> getTimeString(int index) {
-        return convertString(mTime.get(index));
     }
 
     /**
@@ -39,17 +28,17 @@ public class ReportPresenter implements IReportPresenter {
      */
     private void initData() {
         try {
-            mTime.add(GetTime.getTimeInYesterday());
-            mTime.add(GetTime.getTimeInToday());
-            mTime.add(GetTime.getTimeInWeek());
-            mTime.add(GetTime.getTimeInMonth());
-            mTime.add(GetTime.getTimeInYear());
+            mListTime.add(GetTime.getTimeInYesterday());
+            mListTime.add(GetTime.getTimeInToday());
+            mListTime.add(GetTime.getTimeInWeek());
+            mListTime.add(GetTime.getTimeInMonth());
+            mListTime.add(GetTime.getTimeInYear());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            for (ArrayList<Long> time : mTime) {
+            for (ArrayList<Long> time : mListTime) {
                 mListReport.add(mBillDatabaseManager.getTotalReportByTime(time));
             }
         } catch (Exception e) {
@@ -57,6 +46,13 @@ public class ReportPresenter implements IReportPresenter {
         }
     }
 
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/18/2019
+     *
+     * @param list
+     * @return
+     */
     private ArrayList<String> convertString(ArrayList<Long> list) {
         ArrayList<String> result = new ArrayList<>();
         try {
@@ -78,9 +74,42 @@ public class ReportPresenter implements IReportPresenter {
     @Override
     public void getReportAllTime(IReportView iReportView) {
         try {
-            iReportView.getReportDone(mListReport);
+            iReportView.getReportAllTimeDone(mListReport);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/19/2019
+     *
+     * @param iReportView
+     * @param position
+     */
+    @Override
+    public void getReportByTime(IReportView iReportView, int position) {
+        try {
+            iReportView.getReportByTimeDone(mListReport.get(position));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/19/2019
+     *
+     * @param iReportView
+     * @param position
+     */
+    @Override
+    public void getListTime(IReportView iReportView, int position) {
+        try {
+            iReportView.getListTimeDone(mListTime.get(position));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

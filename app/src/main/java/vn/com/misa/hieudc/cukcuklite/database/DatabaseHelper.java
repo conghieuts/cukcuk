@@ -1,8 +1,17 @@
 package vn.com.misa.hieudc.cukcuklite.database;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import vn.com.misa.hieudc.cukcuklite.config.AppContext;
 
@@ -12,8 +21,10 @@ import vn.com.misa.hieudc.cukcuklite.config.AppContext;
  * Đối tượng thao tác với cơ sở dữ liệu
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
+    private String DB_PATH = "/data/data/vn.com.misa.hieudc.cukcuklite/databases/";
+
     static final String DATABASE_NAME = "Db";
-    static final int VERSION = 1;
+    static final int VERSION = 2;
 
     static final String TABLE_FOOD_ITEM = "FoodItems";
     static final String COLUMN_FOOD_ITEM_ID = "food_id";
@@ -60,11 +71,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
+
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String script = "CREATE TABLE " + TABLE_FOOD_ITEM + "("
+        Log.d("nvtien", "onCreate: ");
+        boolean dbExist = checkDatabase();
+        if (!dbExist) {
+            System.out.println("Database doesn't exist!");
+            copyDatabase();
+        } else {
+            System.out.println("Database exist!");
+        }
+        /*String script = "CREATE TABLE " + TABLE_FOOD_ITEM + "("
                 + COLUMN_FOOD_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_FOOD_ITEM_NAME + " TEXT,"
                 + COLUMN_FOOD_ITEM_COST + " INTEGER," + COLUMN_FOOD_ITEM_SELLING + " TEXT,"
                 + COLUMN_FOOD_ITEM_COLOR + " TEXT," + COLUMN_FOOD_ITEM_ICON + " TEXT,"
@@ -78,10 +99,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String script3 = "CREATE TABLE " + TABLE_ORDER + "("
                 + COLUMN_ORDER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_ORDER_NUMBER_OF_TABLE + " INTEGER,"
-                + COLUMN_ORDER_NUMBER_OF_PEOPLE + " INTEGER," + COLUMN_ORDER_STATUS +" TEXT)";
+                + COLUMN_ORDER_NUMBER_OF_PEOPLE + " INTEGER," + COLUMN_ORDER_STATUS + " TEXT)";
         db.execSQL(script3);
 
-        String script4= "CREATE TABLE " + TABLE_ORDER_DETAIL + "("
+        String script4 = "CREATE TABLE " + TABLE_ORDER_DETAIL + "("
                 + COLUMN_ORDER_DETAIL_FR_FOOD_ID + " INTEGER,"
                 + COLUMN_ORDER_DETAIL_FR_ORDER_ID + " INTEGER,"
                 + COLUMN_ORDER_DETAIL_AMOUNT + " INTEGER, "
@@ -98,15 +119,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_BILL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_BILL_NUMBER + " INTEGER, "
                 + COLUMN_BILL_CHARGE + " INTEGER,"
-                + COLUMN_BILL_RECEIVE +" INTEGER,"
+                + COLUMN_BILL_RECEIVE + " INTEGER,"
                 + COLUMN_BILL_TIME + " INTEGER, "
                 + COLUMN_BILL_FR_ORDER_ID + " INTEGER, "
                 + "FOREIGN KEY(" + COLUMN_BILL_FR_ORDER_ID + ") REFERENCES " + TABLE_ORDER + "(" + COLUMN_ORDER_ID + "))";
-        db.execSQL(script5);
+        db.execSQL(script5);*/
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    private void copyDatabase() {
+        try {
+            AssetManager dirPath = AppContext.getInstance().getAssets();
+
+            InputStream myInput = dirPath.open("database/" + DATABASE_NAME);
+
+            String outFileName = DB_PATH + DATABASE_NAME;
+
+            OutputStream myOutput = new FileOutputStream(outFileName);
+
+            byte[] buffer = new byte[1024];
+            int length;
+
+            while ((length = myInput.read(buffer)) > 0) {
+                myOutput.write(buffer, 0, length);
+            }
+
+            myOutput.flush();
+            myOutput.close();
+            myInput.close();
+            System.out.println("copyDatabase success");
+        } catch (IOException e) {
+            System.out.println("copyDatabase error");
+            e.printStackTrace();
+        }
+    }
+
+    private boolean checkDatabase() {
+        boolean checkdb = false;
+        try {
+            String myPath = DB_PATH + DATABASE_NAME;
+            File dbFile = new File(myPath);
+            checkdb = dbFile.exists();
+        } catch (SQLiteException e) {
+            System.out.println("Database doesn't exist!");
+        }
+
+        return checkdb;
     }
 }

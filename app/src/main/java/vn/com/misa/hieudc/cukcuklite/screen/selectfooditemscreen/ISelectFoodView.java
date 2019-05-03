@@ -17,4 +17,6 @@ interface ISelectFoodView {
     void onDataError();
 
     void onUpdateSuccess(String message);
+
+    void onCheckout();
 }

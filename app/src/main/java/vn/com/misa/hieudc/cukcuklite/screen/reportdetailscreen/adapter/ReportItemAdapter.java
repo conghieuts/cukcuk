@@ -20,6 +20,11 @@ import java.util.ArrayList;
 import vn.com.misa.hieudc.cukcuklite.R;
 import vn.com.misa.hieudc.cukcuklite.model.CheckoutItem;
 
+/**
+ * Created_by: dchieu
+ * Created_date: 4/19/2019
+ * Adapter hiển thị danh sách báo cáo theo món ăn
+ */
 public class ReportItemAdapter extends RecyclerView.Adapter<ReportItemAdapter.ViewHolder> {
     private Context mContext;
 
@@ -70,7 +75,7 @@ public class ReportItemAdapter extends RecyclerView.Adapter<ReportItemAdapter.Vi
     public int getItemCount() {
         return mListCheckoutItem != null ? mListCheckoutItem.size() : 0;
     }
-
+/*
     void setDate(ArrayList<CheckoutItem> listCheckoutItem) {
         try {
             if (listCheckoutItem != null) {
@@ -80,7 +85,7 @@ public class ReportItemAdapter extends RecyclerView.Adapter<ReportItemAdapter.Vi
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView ivIndex;

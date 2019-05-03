@@ -20,7 +20,6 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -28,11 +27,15 @@ import vn.com.misa.hieudc.cukcuklite.R;
 import vn.com.misa.hieudc.cukcuklite.model.CheckoutItem;
 import vn.com.misa.hieudc.cukcuklite.screen.reportdetailscreen.adapter.ReportItemAdapter;
 
+/**
+ * Created_by: dchieu
+ * Created_date: 4/19/2019
+ * Màn hình chi tiết báo cáo theo từng món ăn
+ */
 public class ReportDetailActivity extends AppCompatActivity implements IReportDetailView {
     private IReportDetailPresenter mIReportDetailPresenter;
     private PieChart mPieChart;
     ArrayList<CheckoutItem> mListCheckoutItem;
-    ArrayList<String> mTimeListString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +45,10 @@ public class ReportDetailActivity extends AppCompatActivity implements IReportDe
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_normal);
-        mTimeListString = getIntent().getStringArrayListExtra("time");
-        long startTime = Calendar.getInstance().getTimeInMillis();
-        long endTime = startTime;
-        if (mTimeListString != null) {
-            if (mTimeListString.size() >= 2) {
-                startTime = Long.valueOf(mTimeListString.get(0));
-                endTime = Long.valueOf(mTimeListString.get(mTimeListString.size() - 1));
-            }
-        }
+
+        long startTime = getIntent().getLongExtra("startTime", 0);
+        long endTime = getIntent().getLongExtra("endTime", 0);
+
         mIReportDetailPresenter = new ReportDetailPresenter(this, startTime, endTime);
         mIReportDetailPresenter.getReportDetail();
         initListReport();
@@ -58,20 +56,33 @@ public class ReportDetailActivity extends AppCompatActivity implements IReportDe
         showPieChart();
     }
 
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/19/2019
+     * Hiển thị danh sách  báo cáo theo món ăn
+     */
     private void initListReport() {
-        RecyclerView recyclerView = findViewById(R.id.rv_detail_report);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        try {
+            RecyclerView recyclerView = findViewById(R.id.rv_detail_report);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+            recyclerView.setLayoutManager(linearLayoutManager);
 
-        ReportItemAdapter reportItemAdapter = new ReportItemAdapter(this, mListCheckoutItem);
-        recyclerView.setAdapter(reportItemAdapter);
+            ReportItemAdapter reportItemAdapter = new ReportItemAdapter(this, mListCheckoutItem);
+            recyclerView.setAdapter(reportItemAdapter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
+                try {
+                    onBackPressed();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 break;
@@ -79,11 +90,26 @@ public class ReportDetailActivity extends AppCompatActivity implements IReportDe
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/19/2019
+     * Nhận danh sách báo cáo
+     * @param checkoutItems danh sách món ăn đã thanh toán
+     */
     @Override
     public void getReportDone(ArrayList<CheckoutItem> checkoutItems) {
-        mListCheckoutItem = checkoutItems;
+        try {
+            mListCheckoutItem = checkoutItems;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/19/2019
+     * Hiển hị pieChart
+     */
     private void showPieChart() {
         try {
             if (mListCheckoutItem != null) {

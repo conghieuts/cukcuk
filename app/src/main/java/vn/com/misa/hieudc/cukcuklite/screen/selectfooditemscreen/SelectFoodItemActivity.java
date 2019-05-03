@@ -68,7 +68,7 @@ public class SelectFoodItemActivity extends AppCompatActivity implements ISelect
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_normal);
 
             try {
-                mIsStart = getIntent().getSerializableExtra("isStart") == null;
+                mIsStart = getIntent().getBooleanExtra("isStart", true);
                 mOrder = (Order) getIntent().getSerializableExtra("orderItem");
                 mIsNew = mOrder == null;
                 mISelectFoodPresenter = new SelectFoodPresenter(this, mOrder);
@@ -190,10 +190,7 @@ public class SelectFoodItemActivity extends AppCompatActivity implements ISelect
      */
     private void startCheckout() {
         try {
-            Intent intent = new Intent(this, CheckoutActivity.class);
-            intent.putExtra(CheckoutActivity.INTENT_NAME, mOrder);
-            intent.putExtra(CheckoutActivity.INTENT_TYPE, mIsNew);
-            startActivity(intent);
+            mISelectFoodPresenter.startCheckout();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -478,6 +475,23 @@ public class SelectFoodItemActivity extends AppCompatActivity implements ISelect
             else {
                 startActivity(new Intent(this, MainActivity.class));
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/18/2019
+     * chuyển màn hình thanh toán
+     */
+    @Override
+    public void onCheckout() {
+        try {
+            Intent intent = new Intent(this, CheckoutActivity.class);
+            intent.putExtra(CheckoutActivity.INTENT_NAME, mOrder);
+            intent.putExtra(CheckoutActivity.INTENT_TYPE, mIsNew);
+            startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -251,7 +251,7 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
      */
     private void showConfirmDeleteDialog() {
         try {
-            ConfirmDialog confirmDialog = new ConfirmDialog(this, "Xóa món ăn", "Bạn có chắc muốn xóa không?");
+            ConfirmDialog confirmDialog = new ConfirmDialog(this, this, "Xóa món ăn", "Bạn có chắc muốn xóa không?");
             confirmDialog.show();
         } catch (Exception e) {
             e.printStackTrace();

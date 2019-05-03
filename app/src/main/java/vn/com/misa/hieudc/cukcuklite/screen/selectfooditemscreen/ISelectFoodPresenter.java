@@ -20,4 +20,6 @@ interface ISelectFoodPresenter {
     void setNumberOfPeople(int parseInt);
 
     void updateOrderItem();
+
+    void startCheckout();
 }
