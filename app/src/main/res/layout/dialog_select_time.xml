@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        style="@style/text_title_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/time" />
+
+    <TextView
+        android:id="@+id/tv_default"
+        style="@style/text_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingTop="@dimen/layout_padding_big"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingBottom="@dimen/layout_padding_big"
+        android:text="@string/time_default" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorUnderline" />
+
+    <TextView
+        android:id="@+id/tv_this_week"
+        style="@style/text_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingTop="@dimen/layout_padding_big"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingBottom="@dimen/layout_padding_big"
+        android:text="@string/text_this_week" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorUnderline" />
+
+    <TextView
+        android:id="@+id/tv_this_month"
+        style="@style/text_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingTop="@dimen/layout_padding_big"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingBottom="@dimen/layout_padding_big"
+        android:text="@string/text_this_month" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorUnderline" />
+
+    <TextView
+        android:id="@+id/tv_this_year"
+        style="@style/text_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingTop="@dimen/layout_padding_big"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingBottom="@dimen/layout_padding_big"
+        android:text="@string/this_year" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorUnderline" />
+
+    <TextView
+        android:id="@+id/tv_other"
+        style="@style/text_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_border_background_white"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingTop="@dimen/layout_padding_big"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingBottom="@dimen/layout_padding_big"
+        android:text="@string/other" />
+
+</LinearLayout>

@@ -43,7 +43,6 @@ public class ListOrderFragment extends Fragment implements IListOrderView, ListO
         super.onCreate(savedInstanceState);
         try {
             mIListOrderPresenter = new ListOrderPresenter(this);
-            initListOrder();
             registerBroadcast();
         } catch (Exception e) {
             e.printStackTrace();

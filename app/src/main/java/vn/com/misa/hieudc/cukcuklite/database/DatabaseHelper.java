@@ -73,12 +73,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, VERSION);
         boolean dbExist = checkDatabase();
         if (!dbExist) {
+            Log.i("TAG", "onCopy: ");
             copyDatabase();
         }
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.i("TAG", "onCreate: ");
         /*String script = "CREATE TABLE " + TABLE_FOOD_ITEM + "("
                 + COLUMN_FOOD_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_FOOD_ITEM_NAME + " TEXT,"
                 + COLUMN_FOOD_ITEM_COST + " INTEGER," + COLUMN_FOOD_ITEM_SELLING + " TEXT,"
@@ -131,9 +133,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             InputStream myInput = dirPath.open("database/" + DATABASE_NAME);
 
-            String outFileName = DB_PATH + DATABASE_NAME;
-
-            OutputStream myOutput = new FileOutputStream(outFileName);
+            try {
+                //noinspection ResultOfMethodCallIgnored
+                new File(DB_PATH).mkdirs();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            File outputFile = new File(DB_PATH, DATABASE_NAME);
+            OutputStream myOutput = new FileOutputStream(outputFile);
 
             byte[] buffer = new byte[1024];
             int length;
@@ -146,6 +153,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             myOutput.close();
             myInput.close();
         } catch (IOException e) {
+            Log.i("TAG", "copyDatabase: " + e.getMessage());
             e.printStackTrace();
         }
     }

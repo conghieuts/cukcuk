@@ -79,6 +79,10 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    /**
+     * Created_by: dchieu
+     * Created_date: 4/18/2019
+     */
     private void initView() {
         try {
             sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
