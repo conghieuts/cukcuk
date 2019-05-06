@@ -87,11 +87,14 @@ public class SelectFoodItemAdapter extends RecyclerView.Adapter<SelectFoodItemAd
             InputStream ims = assetManager.open(AppContext.getInstance().getResources().getString(R.string.asset_folder) + "/" + foodItem.getIcon());
             Drawable d = Drawable.createFromStream(ims, null);
             viewHolder.ivFoodItemsIcon.setImageDrawable(d);
+            int padding = (int) AppContext.getInstance().getResources().getDimension(R.dimen.icon_padding);
+            viewHolder.ivFoodItemsIcon.setPadding(padding, padding, padding, padding);
             if (mOrder != null) {
                 Integer amount = mOrder.getListFoodItem().get(foodItem);
                 if (amount != null) {
                     viewHolder.tvAmount.setText(String.valueOf(amount));
                     viewHolder.ivFoodItemsIcon.setImageResource(R.drawable.ic_selected);
+                    viewHolder.ivFoodItemsIcon.setPadding(0,0,0,0);
                     viewHolder.rootLayout.setBackgroundColor(AppContext.getInstance().getResources().getColor(R.color.colorBackgroundSecondary));
                     viewHolder.llSelectAmount.setVisibility(View.VISIBLE);
                 }

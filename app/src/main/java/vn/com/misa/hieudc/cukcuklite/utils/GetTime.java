@@ -73,6 +73,7 @@ public class GetTime {
         try {
             Calendar calendar = Calendar.getInstance();
             int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+            if(dayOfWeek == 1) dayOfWeek = 8;
             Calendar newTime = (Calendar) Calendar.getInstance().clone();
             result.add(newTime.getTimeInMillis());
             resetTime(newTime);
@@ -125,7 +126,7 @@ public class GetTime {
             result.add(newTime.getTimeInMillis());
             resetTime(newTime);
             newTime.set(Calendar.DAY_OF_MONTH, 1);
-            for (int i = monthOfYear - 1 ; i >= 0; i--) {
+            for (int i = monthOfYear; i >= 0; i--) {
                 newTime.set(Calendar.MONTH, i);
                 result.add(0, newTime.getTimeInMillis());
             }

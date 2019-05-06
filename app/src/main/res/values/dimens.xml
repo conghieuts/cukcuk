@@ -39,8 +39,8 @@
     <dimen name="layout_padding_small">4dp</dimen>
     <dimen name="icon_big_size">60dp</dimen>
     <dimen name="layout_margin_left_right_super_big">36dp</dimen>
-    <dimen name="icon_margin_start">10dp</dimen>
-    <dimen name="icon_margin_end">40dp</dimen>
+    <dimen name="icon_margin_start">8dp</dimen>
+    <dimen name="icon_margin_end">26dp</dimen>
     <dimen name="icon_margin_top">12dp</dimen>
     <dimen name="icon_margin_end_big">54dp</dimen>
     <dimen name="layout_margin_left_right_bigger">48dp</dimen>

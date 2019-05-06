@@ -58,7 +58,8 @@ public class OverviewDetailAdapter extends RecyclerView.Adapter<OverviewDetailAd
             String title = "";
             switch (mTitleType) {
                 case ReportOverviewFragment.WEEK_DETAIL:
-                    title = String.format("Thứ %s", String.valueOf(position + 2));
+                    if(position == 6 ) title = "CN";
+                    else title = String.format("Thứ %s", String.valueOf(position + 2));
                     break;
                 case ReportOverviewFragment.MONTH_DETAIL:
                     title = String.format("Ngày %s", String.valueOf(position + 1));

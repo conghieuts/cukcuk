@@ -74,7 +74,7 @@
     <style name="button_background_blue">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:background">@drawable/border_background_blue</item>
+        <item name="android:background">@drawable/selector_border_background_blue</item>
         <item name="android:textAllCaps">true</item>
     </style>
 

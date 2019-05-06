@@ -160,7 +160,6 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
                         mFoodItem.setFoodItemsName(etFoodItemName.getText().toString());
                         if (mIsCreate) mIAddFoodItemsPresenter.saveFoodItem(mFoodItem);
                         else mIAddFoodItemsPresenter.updateFoodItem(mFoodItem);
-                        //TODO
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -219,7 +218,6 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    //TODO
                     break;
                 case R.id.iv_color:
                     try {
@@ -227,7 +225,6 @@ public class AddFoodItemsActivity extends AppCompatActivity implements View.OnCl
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    //TODO
                     break;
                 case R.id.iv_icon:
                     try {

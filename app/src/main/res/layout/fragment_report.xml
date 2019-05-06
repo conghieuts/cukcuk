@@ -6,18 +6,19 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:padding="@dimen/layout_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBackgroundSecondary">
 
         <TextView
+            android:padding="@dimen/layout_padding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/text_primary_big"
             android:text="@string/time" />
 
         <TextView
+            android:padding="@dimen/layout_padding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvTypeReport"

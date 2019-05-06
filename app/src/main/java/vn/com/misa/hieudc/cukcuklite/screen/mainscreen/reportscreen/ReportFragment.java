@@ -28,6 +28,7 @@ import vn.com.misa.hieudc.cukcuklite.screen.mainscreen.reportscreen.fragment.Rep
 public class ReportFragment extends Fragment implements ReportOverviewFragment.IOnClickTimeReport, View.OnClickListener, TimeDialog.IOnSelect {
     IReportPresenter mIReportPresenter;
     TextView tvTypeReport;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +74,19 @@ public class ReportFragment extends Fragment implements ReportOverviewFragment.I
     @Override
     public void startOverviewDetail(int targetFragment) {
         try {
+            switch (targetFragment) {
+                case ReportOverviewFragment.WEEK_DETAIL:
+                    tvTypeReport.setText(getString(R.string.text_this_week));
+                    break;
+                case ReportOverviewFragment.MONTH_DETAIL:
+                    tvTypeReport.setText(getString(R.string.text_this_month));
+                    break;
+                case ReportOverviewFragment.YEAR_DETAIL:
+                    tvTypeReport.setText(getString(R.string.this_year));
+                    break;
+                default:
+                    break;
+            }
             FragmentManager fragmentManager = getFragmentManager();
             assert fragmentManager != null;
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

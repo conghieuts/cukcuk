@@ -381,6 +381,7 @@ public class SelectFoodItemActivity extends AppCompatActivity implements ISelect
             setAmount(amount);
             ImageView ivIcon = mCurrentViewClicked.findViewById(R.id.iv_icon);
             ivIcon.setImageResource(R.drawable.ic_selected);
+            ivIcon.setPadding(0,0,0,0);
             mCurrentViewClicked.findViewById(R.id.ll_menu_select_item).setBackgroundResource(R.drawable.selector_background_second);
             mCurrentViewClicked.findViewById(R.id.ll_select_amount).setVisibility(View.VISIBLE);
         } catch (Exception e) {
@@ -508,6 +509,8 @@ public class SelectFoodItemActivity extends AppCompatActivity implements ISelect
             AssetManager assetManager = getAssets();
             InputStream ims = assetManager.open(getResources().getString(R.string.asset_folder) + "/" + mCurrentFoodItem.getIcon());
             Drawable d = Drawable.createFromStream(ims, null);
+            int padding = (int) getResources().getDimension(R.dimen.icon_padding);
+            ivIcon.setPadding(padding, padding, padding, padding);
             ivIcon.setImageDrawable(d);
             mCurrentViewClicked.findViewById(R.id.ll_menu_select_item).setBackgroundResource(R.drawable.selector_border_background_white);
             mCurrentViewClicked.findViewById(R.id.ll_select_amount).setVisibility(View.GONE);

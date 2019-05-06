@@ -5,19 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/border_background_white"
-    android:orientation="vertical"
-    android:paddingTop="@dimen/layout_padding">
+    android:orientation="vertical">
 
     <RelativeLayout
+        android:paddingTop="@dimen/layout_padding_small"
         android:id="@+id/rl_yesterday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/selector_border_background_white"
         android:paddingStart="@dimen/layout_padding"
-        android:paddingEnd="@dimen/layout_padding"
-        android:layout_marginBottom="@dimen/layout_padding_small">
+        android:paddingEnd="@dimen/layout_padding">
 
         <ImageView
+            android:layout_marginTop="@dimen/layout_padding_small"
             android:id="@+id/iv_yesterday"
             android:layout_width="@dimen/width_medium"
             android:layout_height="@dimen/height_medium"
@@ -62,17 +62,17 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:paddingTop="@dimen/layout_padding_small"
         android:id="@+id/rl_today"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/selector_border_background_white"
         android:paddingStart="@dimen/layout_padding"
-        android:paddingEnd="@dimen/layout_padding"
-        android:layout_marginBottom="@dimen/layout_padding_small">
+        android:paddingEnd="@dimen/layout_padding">
 
         <ImageView
             android:id="@+id/iv_today"
-
+            android:layout_marginTop="@dimen/layout_padding_small"
             android:layout_width="@dimen/width_medium"
             android:layout_height="@dimen/height_medium"
             android:layout_centerVertical="true"
@@ -114,6 +114,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:paddingTop="@dimen/layout_padding_small"
         android:id="@+id/rl_this_week"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -123,6 +124,7 @@
         android:layout_marginBottom="@dimen/layout_padding_small">
 
         <ImageView
+            android:layout_marginTop="@dimen/layout_padding_small"
             android:id="@+id/iv_week"
             android:layout_width="@dimen/width_medium"
             android:layout_height="@dimen/height_medium"
@@ -165,17 +167,17 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:paddingTop="@dimen/layout_padding_small"
         android:id="@+id/rl_this_month"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/selector_border_background_white"
         android:paddingStart="@dimen/layout_padding"
-        android:paddingEnd="@dimen/layout_padding"
-        android:layout_marginBottom="@dimen/layout_padding_small">
+        android:paddingEnd="@dimen/layout_padding">
 
         <ImageView
             android:id="@+id/iv_month"
-
+            android:layout_marginTop="@dimen/layout_padding_small"
             android:layout_width="@dimen/width_medium"
             android:layout_height="@dimen/height_medium"
             android:layout_centerVertical="true"
@@ -217,17 +219,17 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:paddingTop="@dimen/layout_padding_small"
         android:id="@+id/rl_this_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/selector_border_background_white"
         android:paddingStart="@dimen/layout_padding"
-        android:paddingEnd="@dimen/layout_padding"
-        android:layout_marginBottom="@dimen/layout_padding_small">
+        android:paddingEnd="@dimen/layout_padding">
 
         <ImageView
+            android:layout_marginTop="@dimen/layout_padding_small"
             android:id="@+id/iv_year"
-
             android:layout_width="@dimen/width_medium"
             android:layout_height="@dimen/height_medium"
             android:layout_centerVertical="true"
